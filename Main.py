@@ -21,8 +21,8 @@ async def send_audio(message: types.Message):
         await message.reply(f'ДАЙ ССЫЛКУ!!!')
     else:
         msg = await message.reply(f'Подождите, пожалуйста! Скачиваю!')
-        audio_info = download_audio(arg)
         try:
+            audio_info = download_audio(arg)
             with open(audio_info[0], 'rb') as f:
                 await msg.delete()
                 msg = await message.reply(f'Подождите, пожалуйста! Отправляю!')
